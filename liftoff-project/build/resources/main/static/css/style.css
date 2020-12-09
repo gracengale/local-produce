@@ -16,19 +16,24 @@ body {
 }
 
 /*============= NAVIGATION =============*/
-.navbar-brand img {
-    height: 6rem;
-}
-
 .navbar-brand {
     height: 2rem;
 }
 
+.navbar-brand img {
+    height: 2rem;
+}
+
 .navbar-dark {
-    font-size: .8rem;
+    padding: 0.6rem 1rem;
+    font-size: .9rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: .04rem;
+    letter-spacing: .1rem;
+}
+
+.navbar-nav {
+    padding-right: 2rem;
 }
 
 .navbar-nav li {
@@ -49,11 +54,12 @@ body {
 
 /*-- Fixed Landing Page Section --*/
 .landing{
-    height: 120vh;
+    height: 90vh;
 }
 
 .home-inner{
     position: fixed;
+    background-image: url("../img/header2.png");
 }
 
 /*-- Landing Page Content --*/
@@ -125,7 +131,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
    left: 0;
    width: 100%;
    height: 100%;
-   background-size: 70%;
+   background-size: 100%;
    background-position: center center;
    transform: translateZ(0);
    -webkit-transform: translateZ(0);

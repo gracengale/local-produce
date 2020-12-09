@@ -21,11 +21,11 @@
 </head>
 
 <body>
-<div th:fragment="page-header">
+<div th:fragment="navigation">
     <!-- Navigation -->
     <nav class="navbar navbar-dark bg-success navbar-expand-md fixed-top">
         <div class="container-fluid">
-            <a th:href="index.html" class="navbar-brand"><img src="img/logoB.ico" alt="Logo" title="Logo"></a>
+            <a th:href="@{/}" class="navbar-brand"><img src="img/logo3.png" alt="Logo" title="Logo"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,10 +43,17 @@
                         <a th:href="@{marketplace}" class="nav-link">MarketPlace</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{events}" class="nav-link">Event Calendar</a>
+                        <a th:href="@{events}" class="nav-link">Calendar</a>
                     </li>
-                    <li class="nav-item">
-                        <a th:href="@{login}" class="nav-link">Account</a>
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" th:href="@{login}">Login/Logout</a></li>
+                            <li><a class="dropdown-item" th:href="@{register}">Register</a></li>
+                            <li><a class="dropdown-item" th:href="@{profile}">My Profile</a></li>
+                        </ul>
                     </li>
                 </ul>
 
