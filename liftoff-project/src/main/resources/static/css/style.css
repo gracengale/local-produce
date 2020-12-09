@@ -25,11 +25,10 @@ body {
 }
 
 .navbar-dark {
-    padding: 0.6rem 1rem;
+    padding: 0.6rem;
     font-size: .9rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: .1rem;
 }
 
 .navbar-nav {
@@ -50,6 +49,7 @@ body {
 }
 
 
+
 /*============= LANDING PAGE =============*/
 
 /*-- Fixed Landing Page Section --*/
@@ -58,8 +58,8 @@ body {
 }
 
 .home-inner{
-    position: fixed;
     background-image: url("../img/header2.png");
+    background-repeat: no-repeat;
 }
 
 /*-- Landing Page Content --*/
@@ -67,7 +67,14 @@ body {
 
 
 /*============= ABOUT SECTION =============*/
+#about {
+    height: 30vh;
+    background-color: #FFFAF0!important;
+}
 
+#imgabout {
+ height:5rem;
+}
 /*-- Scrollspy Offset --*/
 
 
