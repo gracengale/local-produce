@@ -56,13 +56,14 @@ body {
 .home-inner{
     background-image: url("../img/header2.png");
     background-repeat: no-repeat;
+    text-align: center;
 }
 /*============= ABOUT SECTION =============*/
 #about {
     height: 20vh;
 }
 
-#imgabout {
+#littleCalendar {
  height:5rem;
 }
 

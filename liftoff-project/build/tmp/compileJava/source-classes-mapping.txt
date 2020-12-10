@@ -1,7 +1,7 @@
 org/launchcode/liftoffproject/controllers/AuthenticationController.java
  org.launchcode.liftoffproject.controllers.AuthenticationController
-org/launchcode/liftoffproject/models/data/ProductRepository.java
- org.launchcode.liftoffproject.models.data.ProductRepository
+org/launchcode/liftoffproject/controllers/HomeController.java
+ org.launchcode.liftoffproject.controllers.HomeController
 org/launchcode/liftoffproject/controllers/MarketPlaceController.java
  org.launchcode.liftoffproject.controllers.MarketPlaceController
 org/launchcode/liftoffproject/models/Product.java
@@ -36,5 +36,5 @@ org/launchcode/liftoffproject/models/dto/LoginFormDTO.java
  org.launchcode.liftoffproject.models.dto.LoginFormDTO
 org/launchcode/liftoffproject/models/ProductData.java
  org.launchcode.liftoffproject.models.ProductData
-org/launchcode/liftoffproject/controllers/HomeController.java
- org.launchcode.liftoffproject.controllers.HomeController
+org/launchcode/liftoffproject/models/data/ProductRepository.java
+ org.launchcode.liftoffproject.models.data.ProductRepository
