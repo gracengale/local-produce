@@ -81,7 +81,7 @@ public class MarketPlaceController {
 //    }
 
     @PostMapping("results")
-    public String listProductsByValue(Model model, @RequestParam String searchTerm, @RequestParam String searchType) {
+    public String listProductsByValue(Model model, @RequestParam String searchTerm, @RequestParam(required = false) String searchType) {
         Iterable<Product> products;
         Iterable<Vendor> vendors;
 
