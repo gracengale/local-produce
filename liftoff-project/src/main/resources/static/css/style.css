@@ -198,6 +198,7 @@ text-align: center;
     height: 175px!important;
     width: 164px!important;
     position: relative;
+    padding: 5px!important;
 }
 
 .cards-body {
