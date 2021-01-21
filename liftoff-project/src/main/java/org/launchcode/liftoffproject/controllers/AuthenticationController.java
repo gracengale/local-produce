@@ -70,6 +70,7 @@ public class AuthenticationController {
         }
 
         User existingEmail = userRepository.findByEmail(registerFormDTO.getEmail());
+
         if (existingEmail != null) {
             errors.rejectValue("email", "email.alreadyexists", "A user with that e-mail already exists");
             model.addAttribute("title", "Register");
@@ -90,7 +91,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:/login";
+        return "redirect:";
     }
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
