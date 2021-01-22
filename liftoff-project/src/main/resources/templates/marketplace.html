@@ -8,35 +8,32 @@
     <div th:replace="fragments :: navigation"></div>
 </div>
 
-<div class="container body-content">
+<div class="container body-content mkp-ct">
     <div class="mkpTitle">
-        <h3><bold>LOCAL PRODUCE MARKETPLACE</bold></h3>
+        <h3><dt>LOCAL PRODUCE MARKETPLACE</dt></h3>
         <p>Welcome to our marketplace! Buy fruits, vegetables, and more from local producers near your home!</p>
         <br>
         <!--Search Bar-->
-        <div style = "position:relative; top: 80px;">
-            <form th:action="@{/marketplace/results}" method = "post">
-                <h2>Filter by:</h2>
-                <p>
-            <span th:each="column : ${columns}">
-                <input
-                        type="radio"
-                        name="searchType"
-                        th:id="${column.key}"
-                        th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
-
-                </p>
-                <p>
-                    <label for="value">Keyword:</label>
-                    <input type="text" name="searchTerm" id="value" />
-                </p>
-
-                <input type="submit" value="Search" />
+        <div class="mb-3 search-form">
+            <h4>FILTER BY:</h4>
+            <form th:action="@{marketplace/results}" method="post">
+                <div class="form-check-inline" th:each="column : ${columns}">
+                    <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>
+                    <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>
+                </div>
+                <br>
+                <div class="row mb-0">
+                    <div class="col-auto">
+                        <label for="value">Keyword:</label>
+                        <input type="text" name="searchTerm" id="value" />
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" value="Search" />
+                    </div>
+                </div>
             </form>
-
+        </div>
+        <br>
         <h4>SEE ALL PRODUCTS</h4>
         <br>
         <div class="container">
@@ -44,8 +41,8 @@
                 <div class="col-4 col-md-3 col-lg-2" th:each="product : ${products}">
                     <div class="card mb-4">
                         <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top mkp-img">
-                        <div class="card-body">
-                            <h5 th:text="${product.name}">PRODUCT</h5>
+                        <div class="cards-body">
+                            <h6 th:text="${product.name}"></h6>
                             <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a>
                         </div>
                     </div>
@@ -62,9 +59,9 @@
                 <div class="col-4 col-md-3 col-lg-2" th:each="vendor : ${vendors}">
                     <div class="card mb-4">
                         <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top mkp-img">
-                        <div class="card-body">
-                            <h5 th:text="${vendor.name}">VENDOR</h5>
-                            <a th:href="@{'users/profile/' + ${vendor.id}}">See profile</a>
+                        <div class="cards-body">
+                            <h6 th:text="${vendor.name}">VENDOR</h6>
+                            <a th:href="@{'profile/vendorId' + ${vendorId}}">See profile</a>
                         </div>
                     </div>
                 </div>
@@ -72,38 +69,8 @@
         </div>
     </div>
 </div>
-
-<!--&lt;!&ndash;Marketplace table&ndash;&gt;-->
-<!--<div class="container" style = "position:relative; top: 80px;">-->
-<!--    <h1>Marketplace</h1>-->
-<!--    <div class="row col-md-7 table-responsive;">-->
-<!--        <table id="customerTable" class="table">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>Product</th>-->
-<!--                <th>Description</th>-->
-<!--                <th>Photo</th>-->
-<!--                <th>Organic</th>-->
-<!--                <th>Location</th>-->
-<!--                <th>Vendor</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr th:each="product, rowStat: ${products}"-->
-<!--                th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">-->
-<!--                <td th:text="${product.name}"></td>-->
-<!--                <td th:text="${product.description}"></td>-->
-<!--                <td th:src="${product.photo}"></td>-->
-<!--                <td>-->
-<!--                    <span th:if="${product.organic == true}">Organic</span>-->
-<!--                    <span th:unless="${product.organic == true}">Non-Organic</span>-->
-<!--                </td>-->
-<!--&lt;!&ndash;                <td th:text="${product.vendor.location}"></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                <td th:text="${product.vendor.name}">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <a th:href="@{'/users/profile'} + ${product.vendor.id}}"></a>&ndash;&gt;-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
-<!--    </div>-->
-<!--</div>-->
+<div>
+    <footer th:replace="fragments :: footer"></footer>
+</div>
+</body>
+</html>
