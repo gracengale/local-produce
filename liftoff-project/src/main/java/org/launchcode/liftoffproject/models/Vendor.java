@@ -18,6 +18,7 @@ public class Vendor extends AbstractEntity{
     @Size(max = 500, message = "Cannot exceed 500 characters.")
     private String bio;
 
+    @Size(max = 200000)
     private String photo;
     private double averageRating;
     private String website;
@@ -28,6 +29,9 @@ public class Vendor extends AbstractEntity{
 
     @OneToOne(mappedBy = "vendor")
     private User user;
+
+    @ManyToMany(mappedBy = "favoriteVendors")
+    private final List<User> users = new ArrayList<>();
 
     public Vendor(String email, String location, String bio, String photo, double averageRating, String website) {
         super();

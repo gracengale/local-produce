@@ -48,8 +48,8 @@
                                 <h6 class="text-muted">314-xxx-xxxx</h6>
                             </div>
                             <!--add vendor to favorites button-->
-                            <div class="col-sm-4">
-                                <button type="submit" onclick="alert('Vendor has been added to your favorites!');">Add Vendor to Favorites</button>
+                            <div class="col-sm-4" th:if="${user}">
+                                <button type="submit" onclick="alert('Done!');">Add Vendor to Favorites</button>
                             </div>
                         </div>
                     </div>

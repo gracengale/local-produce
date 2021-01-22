@@ -58,9 +58,36 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("users/profile/{vendorId}")
-    public String displayViewVendor(Model model, @PathVariable int vendorId) {
+    @GetMapping("users/favorites")
+    public String displayFavoriteVendors(Model model, HttpServletRequest request) {
 
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            //get user from session
+            User user = getUserFromSession(session);
+            model.addAttribute("user", user);
+
+            //get user's favoriteVendors list
+            List<Vendor> favorites = user.getFavoriteVendors();
+            model.addAttribute("favoriteVendors", favorites);
+        }
+
+        return "users/favorites";
+    }
+
+    @GetMapping("users/profile/{vendorId}")
+    public String displayViewVendor(Model model, @PathVariable int vendorId, HttpServletRequest request) {
+
+        //Check for session and get user
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            User user = getUserFromSession(session);
+            model.addAttribute("user", user);
+        }
+
+        //Get the right vendor profile
         Optional<Vendor> optionalVendor = vendorRepository.findById(vendorId);
         if (optionalVendor.isPresent()) {
             Vendor vendor = (Vendor) optionalVendor.get();
@@ -69,5 +96,33 @@ public class HomeController {
         } else {
             return "redirect:../";
         }
+    }
+
+    @PostMapping("users/profile/{vendorId}")
+    public String processViewVendorButton(Model model, @PathVariable int vendorId,HttpServletRequest request) {
+
+        //Check for session and get user
+        HttpSession session = request.getSession(false);
+
+        //get user from session
+        User user = getUserFromSession(session);
+        model.addAttribute("user", user);
+
+        //get user's favoriteVendors list
+        List<Vendor> favorites = user.getFavoriteVendors();
+
+        //If button is clicked, add Vendor to user's fav list
+        Optional<Vendor> optionalVendor = vendorRepository.findById(vendorId);
+        if (optionalVendor.isPresent()) {
+            Vendor vendor = (Vendor) optionalVendor.get();
+            favorites.add(vendor);
+            model.addAttribute("vendor", vendor);
+
+        }
+
+        model.addAttribute("favoriteVendors", favorites);
+
+        return "redirect:../profile/{vendorId}";
+
     }
 }

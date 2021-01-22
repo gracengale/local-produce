@@ -34,6 +34,9 @@ public class User  {
 
     private String isVendor;
 
+    @ManyToMany
+    private List<Vendor> favoriteVendors = new ArrayList<>();
+
     public User() {}
 
     public User(String username,String email, String password, String isVendor) {
@@ -72,5 +75,13 @@ public class User  {
 
     public void setIsVendor(String isVendor) {
         this.isVendor = isVendor;
+    }
+
+    public List<Vendor> getFavoriteVendors() {
+        return favoriteVendors;
+    }
+
+    public void setFavoriteVendors(List<Vendor> favoriteVendors) {
+        this.favoriteVendors = favoriteVendors;
     }
 }
