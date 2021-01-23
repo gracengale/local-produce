@@ -84,4 +84,28 @@ public class ProductController {
 
         return "redirect:/vendor/profile";
     }
+
+    @GetMapping("products/edit")
+    public String displayMyVendorProfile(Model model, HttpServletRequest request) {
+        //Get user from session
+        HttpSession session = request.getSession(false);
+        User user = getUserFromSession(session);
+        model.addAttribute("user", user);
+
+        //get vendor from session user and redirect to their profile
+        if (user.getVendor() != null) {
+            Vendor vendor = user.getVendor();
+            model.addAttribute("vendor", vendor);
+            Iterable<Product> vendorProducts = user.getVendor().getProducts();
+            vendorProducts = productRepository.findByVendor(user.getVendor());
+            model.addAttribute("vendorProducts", vendorProducts);
+            return "products/edit";
+        } else {
+            //if user is not linked to a vendor yet, send to create profile and link to session user
+            model.addAttribute("title", "Create Profile");
+            model.addAttribute(new Vendor());
+            return "redirect:/vendor/create";
+        }
+
+    }
 }
