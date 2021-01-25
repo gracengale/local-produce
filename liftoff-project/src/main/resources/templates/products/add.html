@@ -27,7 +27,7 @@
                             <span th:errors="${product.description}" class="error"></span>
                         </div>
                         <div class="mb-3">
-                            <label th:for="organic">Check box if this item is organic</label>
+                            <label th:for="organic">Check box if this item is organic:</label>
                             <input th:field="${product.organic}" type="checkbox" name="${product.organic}" id = "Yes" value = "true"/>
                         </div>
                         <div class="mb-3">
@@ -37,8 +37,13 @@
                             <span th:errors="${product.photo}" class="error"></span>
                         </div>
                         <div class="mb-3">
-                            <label th:for="type">Product Type</label>
-                            <input th:field="${product.type}" />
+                            <label th:for="type">Product Type:</label>
+                            <select th:field="${product.type}">
+                                <option value="Vegetable">Vegetable</option>
+                                <option value-"Fruit">Fruit</option>
+                                <option value="Animal Product">Animal Product</option>
+                                <option value=""Other">Other</option>
+                            </select>
                             <span th:errors="${product.type}" class="error"></span>
                         </div>
                         <input type="submit" value="Submit"/>

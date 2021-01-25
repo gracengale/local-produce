@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -60,6 +62,7 @@ public class ProductController {
             model.addAttribute("user", user);
         }
 
+
         return "products/add";
 
     }
@@ -92,7 +95,7 @@ public class ProductController {
         User user = getUserFromSession(session);
         model.addAttribute("user", user);
 
-        //get vendor from session user and redirect to their profile
+        //get vendor from session user and redirect to thit commiteir profile
         if (user.getVendor() != null) {
             Vendor vendor = user.getVendor();
             model.addAttribute("vendor", vendor);
