@@ -13,6 +13,7 @@
 <br>
 <div class="container vendor-products">
     <div class="container">
+        <br>
         <h4 style="text-align: center"><dr>PRODUCTS</dr></h4>
         <br>
         <div class="container">
@@ -21,8 +22,11 @@
                     <div class="card mb-4">
 
                         <div class="cards-body">
+                            <form>
                             <h6 th:text="${product.name}">Product</h6>
                             <h6 th:text="${product.description}">Description</h6>
+                                <button type="reset" value="Reset">Reset</button>
+                            </form>
                         </div>
                     </div>
                 </div>
