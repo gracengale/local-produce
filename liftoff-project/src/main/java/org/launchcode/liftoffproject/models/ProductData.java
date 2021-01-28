@@ -74,4 +74,8 @@ public class ProductData {
 
         return results;
     }
+//    public static void remove(int id) {
+//
+//        products.remove(id);
+//    }
 }
