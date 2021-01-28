@@ -61,7 +61,7 @@
                         <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top mkp-img">
                         <div class="cards-body">
                             <h6 th:text="${vendor.name}">VENDOR</h6>
-                            <a th:href="@{'profile/vendorId' + ${vendorId}}">See profile</a>
+                            <a th:href="@{'users/profile/' + ${vendor.id}}">See profile</a>
                         </div>
                     </div>
                 </div>

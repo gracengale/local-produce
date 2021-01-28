@@ -75,11 +75,6 @@ public class MarketPlaceController {
         return "marketplace";
     }
 
-//    @PostMapping("users/profile/{vendorId}")
-//    public String displayVendorProfile(Model model, @PathVariable int vendorId) {
-//
-//    }
-
     @PostMapping("results")
     public String listProductsByValue(Model model, @RequestParam String searchTerm, @RequestParam(required = false) String searchType) {
         Iterable<Product> products;
