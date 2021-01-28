@@ -7,9 +7,6 @@ import javax.validation.constraints.NotNull;
 
 public class RegisterFormDTO extends LoginFormDTO {
 
-
-
-
     private String isVendor;
 
     private String verifyPassword;

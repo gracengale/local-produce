@@ -59,8 +59,17 @@ public class HomeController {
     }
 
     @GetMapping("users/profile/{vendorId}")
-    public String displayViewVendor(Model model, @PathVariable int vendorId) {
+    public String displayViewVendor(Model model, @PathVariable int vendorId, HttpServletRequest request) {
 
+        //Check for session and get user
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            User user = getUserFromSession(session);
+            model.addAttribute("user", user);
+        }
+
+        //Get the right vendor profile
         Optional<Vendor> optionalVendor = vendorRepository.findById(vendorId);
         if (optionalVendor.isPresent()) {
             Vendor vendor = (Vendor) optionalVendor.get();
@@ -69,5 +78,25 @@ public class HomeController {
         } else {
             return "redirect:../";
         }
+    }
+
+    @PostMapping("users/profile/{vendorId}")
+    public String processViewVendorButton(Model model, @PathVariable int vendorId,HttpServletRequest request) {
+
+        //Check for session and get user
+        HttpSession session = request.getSession(false);
+
+        //get user from session
+        User user = getUserFromSession(session);
+        model.addAttribute("user", user);
+
+        //If button is clicked, add Vendor to user's fav list
+        Optional<Vendor> optionalVendor = vendorRepository.findById(vendorId);
+        if (optionalVendor.isPresent()) {
+            Vendor vendor = (Vendor) optionalVendor.get();
+            model.addAttribute("vendor", vendor);
+        }
+
+        return "redirect:../profile/{vendorId}";
     }
 }
