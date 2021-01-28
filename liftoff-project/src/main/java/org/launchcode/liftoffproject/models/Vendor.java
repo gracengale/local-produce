@@ -19,7 +19,6 @@ public class Vendor extends AbstractEntity{
     private String bio;
 
     private String photo;
-    private double averageRating;
     private String website;
 
     @OneToMany
@@ -29,13 +28,12 @@ public class Vendor extends AbstractEntity{
     @OneToOne(mappedBy = "vendor")
     private User user;
 
-    public Vendor(String email, String location, String bio, String photo, double averageRating, String website) {
+    public Vendor(String email, String location, String bio, String photo, String website) {
         super();
         this.email = email;
         this.location = location;
         this.bio = bio;
         this.photo = photo;
-        this.averageRating = averageRating;
         this.website = website;
     }
 
@@ -71,14 +69,6 @@ public class Vendor extends AbstractEntity{
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    public double getAverageRating() {
-        return averageRating;
-    }
-
-    public void setAverageRating(double averageRating) {
-        this.averageRating = averageRating;
     }
 
     public String getWebsite() {
