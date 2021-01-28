@@ -1,6 +1,7 @@
 package org.launchcode.liftoffproject.controllers;
 
-import org.launchcode.liftoffproject.models.Product;
+import  org.launchcode.liftoffproject.models.Product;
+import org.launchcode.liftoffproject.models.ProductData;
 import org.launchcode.liftoffproject.models.User;
 import org.launchcode.liftoffproject.models.Vendor;
 import org.launchcode.liftoffproject.models.data.ProductRepository;
@@ -10,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -88,27 +87,57 @@ public class ProductController {
         return "redirect:/vendor/profile";
     }
 
-    @GetMapping("products/edit")
-    public String displayMyVendorProfile(Model model, HttpServletRequest request) {
-        //Get user from session
-        HttpSession session = request.getSession(false);
-        User user = getUserFromSession(session);
-        model.addAttribute("user", user);
+    @GetMapping("products/edit/{productId}")
+    public String editProduct(@ModelAttribute @PathVariable int productId, Model model) {
 
-        //get vendor from session user and redirect to thit commiteir profile
-        if (user.getVendor() != null) {
-            Vendor vendor = user.getVendor();
-            model.addAttribute("vendor", vendor);
-            Iterable<Product> vendorProducts = user.getVendor().getProducts();
-            vendorProducts = productRepository.findByVendor(user.getVendor());
-            model.addAttribute("vendorProducts", vendorProducts);
-            return "products/edit";
-        } else {
-            //if user is not linked to a vendor yet, send to create profile and link to session user
-            model.addAttribute("title", "Create Profile");
-            model.addAttribute(new Vendor());
-            return "redirect:/vendor/create";
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        Product product = (Product) optionalProduct.get();
+
+        model.addAttribute("title", "Edit Product");
+        model.addAttribute("product", product);
+
+        return "products/edit";
         }
 
+    @PostMapping("products/edit/{productId}")
+    public String processEditProductForm(@PathVariable int productId, @ModelAttribute @Valid @RequestParam String name, @RequestParam String photo, @RequestParam String type, @RequestParam String description, @RequestParam boolean organic, Errors errors, Model model
+    ) {
+        if (errors.hasErrors()) {
+            return "redirect: vendor/profile";
+        }
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        Product product = (Product) optionalProduct.get();
+
+        product.setName(name);
+        product.setPhoto(photo);
+        product.setType(type);
+        product.setDescription(description);
+        product.setOrganic(organic);
+
+
+        productRepository.save(product);
+        return "redirect: vendor/profile";
     }
-}
+    }
+
+
+
+//    @GetMapping("delete")
+//    public String displayDeleteProductForm (Model model){
+//
+//        model.addAttribute("title", "Delete Products");
+//        model.addAttribute("products", ProductData.findByValue());///?????????????
+//
+//        return "products/delete";
+//    }
+//
+//    @PostMapping("delete")
+//    public String processDeleteProductForm (@RequestParam int[] productIds) {
+//
+//        for (int id : productIds) {
+//            ProductData.remove(id);
+//        }
+//        return "redirect:";
+//    }
+    
+//}
