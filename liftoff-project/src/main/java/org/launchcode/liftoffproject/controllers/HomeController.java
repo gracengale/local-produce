@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject.controllers;
 
+import org.launchcode.liftoffproject.models.Product;
 import org.launchcode.liftoffproject.models.User;
 import org.launchcode.liftoffproject.models.Vendor;
 import org.launchcode.liftoffproject.models.data.*;
@@ -74,6 +75,11 @@ public class HomeController {
         if (optionalVendor.isPresent()) {
             Vendor vendor = (Vendor) optionalVendor.get();
             model.addAttribute("vendor", vendor);
+
+            Iterable<Product> vendorProducts = vendor.getProducts();
+            vendorProducts = productRepository.findByVendor(vendor);
+            model.addAttribute("vendorProducts", vendorProducts);
+
             return "users/profile";
         } else {
             return "redirect:../";

@@ -75,31 +75,27 @@ public class MarketPlaceController {
         return "marketplace";
     }
 
-//    @PostMapping("users/profile/{vendorId}")
-//    public String displayVendorProfile(Model model, @PathVariable int vendorId) {
-//
-//    }
-
     @PostMapping("results")
     public String listProductsByValue(Model model, @RequestParam String searchTerm, @RequestParam(required = false) String searchType) {
         Iterable<Product> products;
         Iterable<Vendor> vendors;
 
-
         products = productRepository.findAll();
         vendors = vendorRepository.findAll();
-
 
 
         if(searchTerm == null || searchTerm.toLowerCase().equals("all")){
 
             products = productRepository.findAll();
+            vendors = vendorRepository.findAll();
 
         }
-        products = ProductData.findByValue( searchTerm, productRepository.findAll());
+        products = ProductData.findByValue(searchTerm, productRepository.findAll());
+        vendors = VendorData.findByValue(searchTerm, vendorRepository.findAll());
         model.addAttribute("products", products);
+        model.addAttribute("vendors", vendors);
 
-        return "marketplace";
+        return "results";
     }
 
 }

@@ -18,17 +18,17 @@
                     <form method="post" class="card-block" id="addForm">
                         <div class="mb-3">
                             <label th:for="name">Product Name</label>
-                            <input th:field="${product.name}" />
+                            <input type="text" th:field="${product.name}" th:value="${product.name}"/>
                             <span th:errors="${product.name}" class="error"></span>
                         </div>
                         <div class="mb-3">
                             <label th:for="description">Product Description</label>
-                            <input th:field="${product.description}" />
+                            <input th:field="${product.description}" th:value="${product.description}"/>
                             <span th:errors="${product.description}" class="error"></span>
                         </div>
                         <div class="mb-3">
                             <label th:for="organic">Check box if this item is organic:</label>
-                            <input th:field="${product.organic}" type="checkbox" name="${product.organic}" id = "Yes" value = "true"/>
+                            <input th:field="${product.organic}" type="checkbox" name="${product.organic}" id = "Yes" value="true" th:value="${product.organic}"/>
                         </div>
                         <div class="mb-3">
                             <label th:for="photo">Link to photo:</label>
