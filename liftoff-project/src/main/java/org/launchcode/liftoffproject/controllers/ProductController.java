@@ -105,7 +105,6 @@ public class ProductController {
                                          @RequestParam String photo, @RequestParam String type, @RequestParam String description,
                                          @RequestParam boolean organic) {
 
-
         Optional<Product> optionalProduct = productRepository.findById(productId);
         Product product = (Product) optionalProduct.get();
 
@@ -118,26 +117,4 @@ public class ProductController {
         productRepository.save(product);
         return "redirect:/vendor/profile";
     }
-    }
-
-
-
-//    @GetMapping("delete")
-//    public String displayDeleteProductForm (Model model){
-//
-//        model.addAttribute("title", "Delete Products");
-//        model.addAttribute("products", ProductData.findByValue());///?????????????
-//
-//        return "products/delete";
-//    }
-//
-//    @PostMapping("delete")
-//    public String processDeleteProductForm (@RequestParam int[] productIds) {
-//
-//        for (int id : productIds) {
-//            ProductData.remove(id);
-//        }
-//        return "redirect:";
-//    }
-    
-//}
+}
