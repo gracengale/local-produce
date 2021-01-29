@@ -58,35 +58,35 @@
     <h1 class="user-spotlight-header">VENDOR SPOTLIGHT</h1>
 
 <!--Carousel Wrapper-->
-<!--<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">-->
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-<!--    &lt;!&ndash;Slides&ndash;&gt;-->
-<!--    <div class="carousel-inner" role="listbox">-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
 
-<!--        &lt;!&ndash;First slide&ndash;&gt;-->
-<!--        <div class="carousel-item active">-->
+        <!--First slide-->
+        <div class="carousel-item active">
 
-<!--            <div class="row">-->
-<!--                <div class="col-md-3" th:each="vendor : ${displayVendors}">-->
-<!--                    <div class="card mb-2">-->
-<!--                        <img class="card-img-top" th:src="${vendor.photo}" height="200"-->
-<!--                        alt="Card image cap">-->
-<!--                        <div class="card-body">-->
-<!--                            <h4 class="card-title" th:text="${vendor.name}"></h4>-->
-<!--                            <p class="card-text" th:text="${vendor.location}"></p>-->
-<!--                            <a class="btn btn-primary" th:href="@{'/users/profile/' + ${vendor.id}}">View Profile</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;/.First slide&ndash;&gt;-->
+            <div class="row">
+                <div class="col-md-3" th:each="vendor : ${displayVendors}">
+                    <div class="card mb-2">
+                        <img class="card-img-top" th:src="${vendor.photo}" height="200"
+                        alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title" th:text="${vendor.name}"></h4>
+                            <p class="card-text" th:text="${vendor.location}"></p>
+                            <a class="btn btn-primary" th:href="@{'/users/profile/' + ${vendor.id}}">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.First slide-->
 
 
-<!--    </div>-->
-<!--    &lt;!&ndash;/.Slides&ndash;&gt;-->
+    </div>
+    <!--/.Slides-->
 
-<!--</div>-->
+</div>
 <!--/.Carousel Wrapper-->
 </div>
 <!--End User Spotlight Container-->

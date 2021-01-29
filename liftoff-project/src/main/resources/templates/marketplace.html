@@ -44,8 +44,8 @@
                         <div class="cards-bodyMP">
                             <h6 th:text="${product.name}"></h6>
                             <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a>
-                            <h6 th:text="'Type: ' + ${product.type}"></h6>
-                            <h6 th:text="'Description: ' + ${product.description}"></h6>
+                            <h6 th:text="${product.type}"></h6>
+                            <h6 th:text="${product.description}"></h6>
                         </div>
                     </div>
                     <br>
