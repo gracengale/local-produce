@@ -40,10 +40,12 @@
             <div class="row">
                 <div class="col-4 col-md-3 col-lg-2" th:each="product : ${products}">
                     <div class="card mb-4">
-                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top mkp-img">
+                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top img-products">
                         <div class="cards-body">
-                            <h6 th:text="${product.name}"></h6>
-                            <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a>
+                            <h5><dr th:text="${product.name}"></h5>
+                            <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a><br>
+                            <h7 th:text="'Product type: ' + ${product.type}"></h7>
+                            <h7 th:text="'Description: ' + ${product.description}"></h7>
                         </div>
                     </div>
                     <br>
@@ -58,8 +60,8 @@
             <div class="row">
                 <div class="col-4 col-md-3 col-lg-2" th:each="vendor : ${vendors}">
                     <div class="card mb-4">
-                        <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top mkp-img">
-                        <div class="cards-body">
+                        <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top img-vendors">
+                        <div class="cards-bodyV">
                             <h6 th:text="${vendor.name}">VENDOR</h6>
                             <a th:href="@{'users/profile/' + ${vendor.id}}">See profile</a>
                         </div>
