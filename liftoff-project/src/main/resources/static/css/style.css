@@ -8,6 +8,20 @@ body {
 }
 
 /*============= NAVIGATION =============*/
+#hello {
+    font-family: 'Caveat Brush', cursive;
+    padding-top: 13px!important;
+    padding-left: 30px!important;
+    font-size: 1rem;
+    color: #eccc60!important;
+    letter-spacing: 0.1rem;
+}
+
+#account {
+    letter-spacing: 0.05rem;
+    font-size: 0.85rem;
+    padding-top: 12px;
+}
 .navbar-brand {
     height: 2rem;
 }
@@ -73,14 +87,14 @@ body {
     overflow: hidden;
 }
 
-.heading{
+/* .heading{
 color: #6e634c;
 text-align: center;
 font-size:45px;
 color: white;
 font-weight: bold, italic;
 padding: 10px;
-}
+} */
 
 .aboutUsText{
 font-size:15px;
@@ -165,7 +179,14 @@ text-align: center;
 #editVendor {
     width: 100%;
     position: absolute;
-    padding-top: 3rem;
+    padding-top: 1.5rem;
+    padding-left: 15%;
+}
+
+#submitBtn {
+    background-color: #eccc60!important;
+    border-color: #eccc60!important;
+    font-weight: 700;
 }
 
 .vendorProducts {
@@ -183,6 +204,10 @@ text-align: center;
     max-width: 90%!important;
 }
 
+#addForm {
+    margin-bottom: 30px!important;
+
+}
 /*============= MARKETPLACE PAGE =============*/
 .mkp-ct {
     line-height: 2;
@@ -215,13 +240,23 @@ text-align: center;
 }
 
 .cards-body {
-    height: 175px!important;
+    height: 180px!important;
     padding-top: 20px;
 }
 
 .cards-bodyV {
     height: 100px!important;
     padding-top: 20px;
+}
+
+.cards-bodyP {
+    height: 195px!important;
+    padding-top: 20px;
+    line-height: 10px;
+}
+
+#p-name{
+    font-weight: 600!important;
 }
 
 

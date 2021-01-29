@@ -39,7 +39,7 @@ public class VendorController {
             User user = getUserFromSession(session);
             model.addAttribute("user", user);
         }
-        model.addAttribute("title", "Create Profile");
+        model.addAttribute("title", "CREATE PROFILE");
         model.addAttribute(new Vendor());
         return "vendors/edit";
     }
@@ -64,7 +64,7 @@ public class VendorController {
     public String processCreateProfileForm(@ModelAttribute @Valid Vendor newVendor, Errors errors, Model model, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Profile");
+            model.addAttribute("title", "CREATE PROFILE");
             return "vendors/edit";
         }
 
@@ -83,7 +83,7 @@ public class VendorController {
 
     @GetMapping("vendor/edit")
     public String displayEditProfileForm(Model model, Vendor vendor, HttpServletRequest request) {
-        model.addAttribute("title", "Edit Profile");
+        model.addAttribute("title", "EDIT PROFILE");
 
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
@@ -98,7 +98,7 @@ public class VendorController {
                                          @RequestParam String email, @RequestParam String website, @RequestParam String bio, Errors errors, Model model, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Edit Profile");
+            model.addAttribute("title", "EDIT PROFILE");
             return "vendors/edit";
         }
 

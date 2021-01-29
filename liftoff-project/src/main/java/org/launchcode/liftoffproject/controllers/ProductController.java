@@ -61,7 +61,7 @@ public class ProductController {
             model.addAttribute("user", user);
         }
 
-        model.addAttribute("title", "Add Product");
+        model.addAttribute("title", "ADD PRODUCT");
 
         return "products/add";
 
@@ -85,6 +85,8 @@ public class ProductController {
         newProduct.setVendor(vendor);
         productRepository.save(newProduct);
 
+        model.addAttribute("title", "ADD PRODUCT");
+
         return "redirect:/vendor/profile";
     }
 
@@ -94,7 +96,7 @@ public class ProductController {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         Product product = (Product) optionalProduct.get();
 
-        model.addAttribute("title", "Edit Product");
+        model.addAttribute("title", "EDIT PRODUCT");
         model.addAttribute("product", product);
 
         return "products/edit";
@@ -115,6 +117,7 @@ public class ProductController {
         product.setOrganic(organic);
 
         productRepository.save(product);
+
         return "redirect:/vendor/profile";
     }
 }
