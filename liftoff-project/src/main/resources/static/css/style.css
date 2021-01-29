@@ -165,8 +165,7 @@ text-align: center;
 #editVendor {
     width: 100%;
     position: absolute;
-    text-align: center;
-    padding-top: 5rem;
+    padding-top: 3rem;
 }
 
 .vendorProducts {

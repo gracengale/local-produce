@@ -61,6 +61,7 @@ public class ProductController {
             model.addAttribute("user", user);
         }
 
+        model.addAttribute("title", "Add Product");
 
         return "products/add";
 
