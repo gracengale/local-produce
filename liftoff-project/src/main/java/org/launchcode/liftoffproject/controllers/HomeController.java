@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,6 +56,19 @@ public class HomeController {
             User user = getUserFromSession(session);
             model.addAttribute("user", user);
         }
+
+        List<Vendor> allVendors = new ArrayList<>();
+        List<Vendor> displayVendors = new ArrayList<>();
+
+        for (Vendor vendor : vendorRepository.findAll()) {
+            allVendors.add(vendor);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            displayVendors.add(allVendors.get(i));
+        }
+
+        model.addAttribute("displayVendors", displayVendors);
 
         return "index";
     }
