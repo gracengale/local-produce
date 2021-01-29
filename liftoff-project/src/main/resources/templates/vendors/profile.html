@@ -70,7 +70,10 @@
                         <div class="cards-body">
                             <h6 th:text="${product.name}"><dr></dr></h6><br>
                             <h6 th:text="'Product type: ' + ${product.type}"></h6>
-                            <h6 th:text="'Description: ' + ${product.description}"></h6>
+                            <h6 th:text="'Description: ' + ${product.description}"></h6><br>
+                            <h6 th:text="${product.name}">Product</h6>
+                            <a th:href="@{'/products/edit/' + ${product.id}}"><button class="btn btn-sm btn-info" id="editProductBtn" th:value="${product.id}">Edit Products</button></a><br>
+                            <a th:href="@{'/products/delete/' + ${product.id}}"><button class="btn btn-sm btn-info" id="deleteProductBtn" th:value="${product.id}">Delete Products</button></a>
                         </div>
                     </div>
                 </div>
