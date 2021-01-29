@@ -40,7 +40,7 @@
                         </div>
                         <br>
                         <br>
-                        <div class="row justify-content-center" id="profileEditBtns">
+                        <div class="row justify-content-center">
                             <div class="col-sm-4 text-center">
                                 <i class="far fa-edit-tie fa-2x mb-4"></i>
                                 <a th:href="@{/products/add}"><button class="btn btn-sm btn-info" id="addProductBtn">Add Products</button></a>
@@ -64,12 +64,15 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-4 col-md-3 col-lg-2" th:each="product : ${vendorProducts}">
+                <div class="col-4 col-md-3 col-lg-2 text-center" th:each="product : ${vendorProducts}">
                     <div class="card mb-4">
-                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top mkp-img">
+                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top vendorProducts">
                         <div class="cards-body">
+                            <h6 th:text="${product.name}"><dr></dr></h6><br>
+                            <h6 th:text="'Product type: ' + ${product.type}"></h6>
+                            <h6 th:text="'Description: ' + ${product.description}"></h6><br>
                             <h6 th:text="${product.name}">Product</h6>
-                            <a th:href="@{'/products/edit/' + ${product.id}}"><button class="btn btn-sm btn-info" id="editProductBtn" th:value="${product.id}">Edit Products</button></a>
+                            <a th:href="@{'/products/edit/' + ${product.id}}"><button class="btn btn-sm btn-info" id="editProductBtn" th:value="${product.id}">Edit Products</button></a><br>
                             <a th:href="@{'/products/delete/' + ${product.id}}"><button class="btn btn-sm btn-info" id="deleteProductBtn" th:value="${product.id}">Delete Products</button></a>
                         </div>
                     </div>

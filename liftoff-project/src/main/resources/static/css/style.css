@@ -165,8 +165,14 @@ text-align: center;
 #editVendor {
     width: 100%;
     position: absolute;
-    text-align: center;
-    padding-top: 5rem;
+    padding-top: 3rem;
+}
+
+.vendorProducts {
+    height: 175px!important;
+    width: 100%!important;
+    position: relative;
+    padding: 5px!important;
 }
 
 #profileEditBtns {
@@ -194,7 +200,14 @@ text-align: center;
     top: 18vh!important;
 }
 
-.mkp-img{
+.img-vendors {
+    height: 175px!important;
+    width: 164px!important;
+    position: relative;
+    padding: 5px!important;
+}
+
+.img-products {
     height: 175px!important;
     width: 164px!important;
     position: relative;
@@ -202,9 +215,16 @@ text-align: center;
 }
 
 .cards-body {
-    height: 150px!important;
+    height: 175px!important;
     padding-top: 20px;
 }
+
+.cards-bodyV {
+    height: 100px!important;
+    padding-top: 20px;
+}
+
+
 /* Medium (md) devices (tablets, 768px and under) */
 @media (max-width: 767.98px) {
 
