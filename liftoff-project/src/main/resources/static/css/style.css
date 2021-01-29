@@ -5,6 +5,7 @@ html {
 /*-- Body Resets --*/
 body {
    font-family: 'Lato', sans-serif;
+   background-color: #f4f6f9!important;
 }
 
 /*============= NAVIGATION =============*/
@@ -210,33 +211,10 @@ text-align: center;
 }
 /*============= MARKETPLACE PAGE =============*/
 .mkp-ct {
+    padding-top: 135px!important;
     line-height: 2;
-}
-
-.mkpTitle {
-    position: absolute;
+    padding-left: 10%!important;
     text-align: center;
-    top: 18vh!important;
-}
-
-.results {
-    position: absolute;
-    text-align: center;
-    top: 18vh!important;
-}
-
-.img-vendors {
-    height: 175px!important;
-    width: 164px!important;
-    position: relative;
-    padding: 5px!important;
-}
-
-.img-products {
-    height: 175px!important;
-    width: 164px!important;
-    position: relative;
-    padding: 5px!important;
 }
 
 .cards-body {
@@ -244,7 +222,13 @@ text-align: center;
     padding-top: 20px;
 }
 
-.cards-bodyV {
+.cards-bodyMP {
+    height: 160px!important;
+    padding-top: 20px;
+    line-height: 1.5;
+}
+
+.cards-bodyMV {
     height: 100px!important;
     padding-top: 20px;
 }
@@ -259,6 +243,17 @@ text-align: center;
     font-weight: 600!important;
 }
 
+.resultsImg {
+    height: 175px!important;
+    width: 100%!important;
+    position: relative;
+    padding: 5px!important;
+}
+
+.cards-bodyR {
+    height: 120px!important;
+    padding-top: 20px;
+}
 
 /* Medium (md) devices (tablets, 768px and under) */
 @media (max-width: 767.98px) {
@@ -342,7 +337,7 @@ border: none;
 /* Footer */
 
 footer{
-   background-color: #1c8454;
+   background-color: #198754;
     flex-shrink: 0;
     height: 35px;
     text-align: center;
