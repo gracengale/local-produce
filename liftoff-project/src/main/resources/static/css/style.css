@@ -10,7 +10,8 @@ body {
 
 /*============= NAVIGATION =============*/
 #hello {
-    font-family: 'Caveat Brush', cursive;
+    /*font-family: 'Caveat Brush', cursive;*/
+    font-family: 'Inconsolata', monospace;
     padding-top: 13px!important;
     padding-left: 30px!important;
     font-size: 1rem;
@@ -160,6 +161,15 @@ text-align: center;
     height: 100vh;
     background-size: 100%;
 }
+.form-container2{
+    top: 17vh;
+    position: absolute;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+    line-height: 2.5;
+}
 
 .form-container {
     position: absolute;
@@ -178,7 +188,8 @@ text-align: center;
 }
 
 .lgn-img{
-    height: 300px;
+    height: 350px;
+    padding-top: 40px;
 }
 
 /*============= VENDOR PROFILE =============*/
@@ -190,17 +201,12 @@ text-align: center;
     padding-left: 15%;
 }
 
-#submitBtn {
-    background-color: #eccc60!important;
-    border-color: #eccc60!important;
-    font-weight: 700;
-}
-
 .vendorProducts {
     height: 175px!important;
     width: 100%!important;
     position: relative;
     padding: 5px!important;
+    border-radius: 30px;
 }
 
 #profileEditBtns {
@@ -213,7 +219,10 @@ text-align: center;
 
 #addForm {
     margin-bottom: 30px!important;
+}
 
+.userPP {
+    padding-top: 35px;
 }
 /*============= MARKETPLACE PAGE =============*/
 .mkp-ct {
@@ -235,14 +244,26 @@ text-align: center;
      margin-top: 20px;
      padding-bottom: 10px;
      width: 90%;
- }
+}
+
+#marketplaceTitle2{
+     margin-top: 20px;
+     padding-bottom: 40px;
+     width: 90%;
+}
 
 .key {
     padding-top: 20px!important;
 }
 
+#mkp-card {
+    border-radius: 0px 30px 0px 30px;
+    border: solid black;
+    border-width: 0.5px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
 .cards-body {
-    height: 180px!important;
+    height: 150px!important;
     padding-top: 20px;
 }
 

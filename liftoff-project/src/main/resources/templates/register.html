@@ -9,11 +9,10 @@
 <div id="home">
     <div th:replace="fragments :: navigation"></div>
 </div>
-
 <section class="container-fluid justify-content-end">
     <section class="d-flex flex-row-reverse">
         <section class="col-10 col-lg-5">
-            <form method="post" class="form-container">
+            <form method="post" class="form-container2">
                 <div class="form-group">
                     <label>Username
                         <input class="form-control" th:field="${registerFormDTO.username}" />
@@ -38,11 +37,11 @@
                     </label>
                 </div>
                 <!-- ROLE DETERMINATION -->
-                <input class="form-check-input"  id="inlineCheckbox2" type="checkbox" th:field="*{registerFormDTO.isVendor}" th:value="yes" />
-                <label class="form-check-label" for="inlineCheckbox2" >I'm a vendor</label>
+                <div>
+                    <input class="form-check-input"  id="inlineCheckbox2" type="checkbox" th:field="*{registerFormDTO.isVendor}" th:value="yes" />
+                    <label class="form-check-label" for="inlineCheckbox2" >I'm a vendor</label>
                 </div>
                 <!-- END ROLE DETERMINATION -->
-                <br>
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
                 <br>
                 <p><small>Already have an account? <a th:href="@{login}">Login here.</a></small></p>
@@ -55,7 +54,5 @@
         </section>
     </section>
 </section>
-
-<!-- Script Source Files -->
 </body>
 </html>
