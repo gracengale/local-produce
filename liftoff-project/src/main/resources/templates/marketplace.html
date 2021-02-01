@@ -9,68 +9,70 @@
 </div>
 
 <div class="container body-content mkp-ct justify-content-center">
-    <div>
-        <h3><dt>LOCAL PRODUCE MARKETPLACE</dt></h3>
-        <p>Welcome to our marketplace! Buy fruits, vegetables, and more from local producers near your home!</p>
-        <br>
-        <!--Search Bar-->
-        <div class="mb-3 search-form">
-            <h4>FILTER BY:</h4>
-            <form th:action="@{marketplace/results}" method="post">
-                <div class="form-check-inline" th:each="column : ${columns}">
-                    <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>
-                    <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>
+    <img src="img/marketplace.png" id="marketplaceTitle">
+    <p>Welcome to our marketplace! Buy fruits, vegetables, and more from local producers near your home!</p>
+    <br>
+    <!--Search Bar-->
+    <div class="mb-3 search-form">
+        <h4>FILTER BY:</h4>
+        <form th:action="@{marketplace/results}" method="post">
+            <div class="form-check-inline" th:each="column : ${columns}">
+                <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>
+                <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>
+            </div>
+            <div class="row mb-2 key">
+                <div class="col-auto">
+                    <label for="value">KEYWORD:</label>
+                    <input type="text" name="searchTerm" id="value" />
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Search" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="container body-content mkp-ct2 justify-content-center">
+    <br>
+    <h4>SEE ALL PRODUCTS</h4>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-3 col-lg-2" th:each="product : ${products}">
+                <div class="card mb-2" id="mkp-card">
+                    <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top resultsImg">
+                    <div class="cards-bodyMP">
+                        <h6 th:text="${product.name}"></h6>
+                        <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a>
+                        <h6 th:text="${product.type}"></h6>
+                        <h6 th:text="${product.description}"></h6>
+                    </div>
                 </div>
                 <br>
-                <div class="row mb-0">
-                    <div class="col-auto">
-                        <label for="value">Keyword:</label>
-                        <input type="text" name="searchTerm" id="value" />
-                    </div>
-                    <div class="col-auto">
-                        <input type="submit" value="Search" />
-                    </div>
-                </div>
-            </form>
-        </div>
-        <br>
-        <h4>SEE ALL PRODUCTS</h4>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-4 col-md-3 col-lg-2" th:each="product : ${products}">
-                    <div class="card mb-4">
-                        <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top resultsImg">
-                        <div class="cards-bodyMP">
-                            <h6 th:text="${product.name}"></h6>
-                            <a th:href="@{'users/profile/' + ${product.vendor.id}}" th:text="${product.vendor.name}"></a>
-                            <h6 th:text="'Type: ' + ${product.type}"></h6>
-                            <h6 th:text="'Description: ' + ${product.description}"></h6>
-                        </div>
-                    </div>
-                    <br>
-                </div>
             </div>
-        </div>
-        <br>
-        <h4>SEE ALL VENDORS</h4>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-4 col-md-3 col-lg-2" th:each="vendor : ${vendors}">
-                    <div class="card mb-4">
-                        <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top resultsImg">
-                        <div class="cards-bodyMV">
-                            <h6 th:text="${vendor.name}">VENDOR</h6>
-                            <a th:href="@{'users/profile/' + ${vendor.id}}">See profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <br>
         </div>
     </div>
+    <br>
+    <h4>SEE ALL VENDORS</h4>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-3 col-lg-2" th:each="vendor : ${vendors}">
+                <div class="card mb-2" id="mkp-card">
+                    <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top resultsImg">
+                    <div class="cards-bodyMV">
+                        <h6 th:text="${vendor.name}">VENDOR</h6>
+                        <a class="btn btn-success btn-sm" th:href="@{'/users/profile/' + ${vendor.id}}">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
 </div>
 <div>
     <footer th:replace="fragments :: footer"></footer>
