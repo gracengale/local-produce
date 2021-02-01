@@ -4,8 +4,8 @@ html {
 
 /*-- Body Resets --*/
 body {
-   font-family: 'Lato', sans-serif;
-   background-color: #f4f6f9!important;
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f6f9!important;
 }
 
 /*============= NAVIGATION =============*/
@@ -71,6 +71,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    margin-top: 30px;
 }
 
 .img-c {
@@ -78,6 +79,16 @@ body {
     attachment: fixed;
 }
 
+#about{
+    margin-top: 20px;
+    padding-bottom: 40px;
+    width: 80%;
+}
+
+#vendorspotlight{
+    margin-top: 20px;
+    padding-bottom: 60px;
+}
 /*============= ABOUT SECTION =============*/
 
 #about-container {
@@ -95,7 +106,7 @@ font-size:45px;
 color: white;
 font-weight: bold, italic;
 padding: 10px;
-} */
+}
 
 .aboutUsText{
 font-size:15px;
@@ -103,7 +114,7 @@ color: #6e634c;
 padding-bottom: 12px;
 font-family: "Lucida Console", "Courier New", monospace;
 text-align: center;
-}
+} */
 
 #aboutUsImg {
     background-color: #b1b180;
@@ -131,11 +142,6 @@ text-align: center;
     box-shadow: 0 05px 10px 0 rgba(0,0,0,0.24),0 12px 25px 0 rgba(0,0,0,0.19);
     background-color: #ccd59a;
     border: none;
-}
-
-.card-body-about{
-    background-color: #b1b180;
-
 }
 
 .col-md-8{
@@ -213,8 +219,26 @@ text-align: center;
 .mkp-ct {
     padding-top: 135px!important;
     line-height: 2;
-    padding-left: 10%!important;
     text-align: center;
+    font-family: 'Inconsolata', monospace;
+}
+
+.mkp-ct2 {
+   line-height: 2;
+}
+
+.card {
+    text-align: center;
+}
+
+#marketplaceTitle{
+     margin-top: 20px;
+     padding-bottom: 10px;
+     width: 90%;
+ }
+
+.key {
+    padding-top: 20px!important;
 }
 
 .cards-body {
@@ -248,6 +272,7 @@ text-align: center;
     width: 100%!important;
     position: relative;
     padding: 5px!important;
+    border-radius: 30px;
 }
 
 .cards-bodyR {
@@ -314,12 +339,22 @@ Extra (xl) large devices (large desktops, 1200px and up)
 margin: 0px 50px 150px 50px;
 }
 
-.user-spotlight-header{
 
+/*.card-body {
+    box-shadow: 0 05px 10px 0 rgba(0,0,0,0.24),0 12px 25px 0 rgba(0,0,0,0.19);
+}*/
+
+#homepage-card {
+    width: 90%!important;
+    border-radius: 0px 30px 0px 30px;
+    border: solid black;
+    border-width: 2px;
 }
 
-.card-body{
-box-shadow: 0 05px 10px 0 rgba(0,0,0,0.24),0 12px 25px 0 rgba(0,0,0,0.19);
+#spotlightimg {
+    padding: 10px;
+    height: 170px!important;
+    border-radius: 30px;
 }
 
 .btn-primary{

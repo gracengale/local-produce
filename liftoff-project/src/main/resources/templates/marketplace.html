@@ -9,10 +9,9 @@
 </div>
 
 <div class="container body-content mkp-ct justify-content-center">
-    <div>
-        <h3><dt>LOCAL PRODUCE MARKETPLACE</dt></h3>
-        <p>Welcome to our marketplace! Buy fruits, vegetables, and more from local producers near your home!</p>
-        <br>
+    <img src="img/marketplace.png" id="marketplaceTitle">
+    <p>Welcome to our marketplace! Buy fruits, vegetables, and more from local producers near your home!</p>
+    <br>
         <!--Search Bar-->
         <div class="mb-3 search-form">
             <h4>FILTER BY:</h4>
@@ -21,10 +20,9 @@
                     <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>
                     <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>
                 </div>
-                <br>
-                <div class="row mb-0">
+                <div class="row mb-2 key">
                     <div class="col-auto">
-                        <label for="value">Keyword:</label>
+                        <label for="value">KEYWORD:</label>
                         <input type="text" name="searchTerm" id="value" />
                     </div>
                     <div class="col-auto">
@@ -33,13 +31,15 @@
                 </div>
             </form>
         </div>
+</div>
+<div class="container body-content mkp-ct2 justify-content-center">
         <br>
         <h4>SEE ALL PRODUCTS</h4>
         <br>
         <div class="container">
             <div class="row">
                 <div class="col-4 col-md-3 col-lg-2" th:each="product : ${products}">
-                    <div class="card mb-4">
+                    <div class="card mb-2" id="homepage-card">
                         <img th:src="@{|${product.photo}|}" th:value="@{product.photo}" class="card-img-top resultsImg">
                         <div class="cards-bodyMP">
                             <h6 th:text="${product.name}"></h6>
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 col-md-3 col-lg-2" th:each="vendor : ${vendors}">
-                    <div class="card mb-4">
+                    <div class="card mb-2" id="homepage-card">
                         <img th:src="@{|${vendor.photo}|}" th:value="@{vendor.photo}" class="card-img-top resultsImg">
                         <div class="cards-bodyMV">
                             <h6 th:text="${vendor.name}">VENDOR</h6>
