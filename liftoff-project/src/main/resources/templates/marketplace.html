@@ -14,11 +14,11 @@
     <br>
     <!--Search Bar-->
     <div class="mb-3 search-form">
-        <h4>FILTER BY:</h4>
+<!--        <h4>FILTER BY:</h4>-->
         <form th:action="@{marketplace/results}" method="post">
-            <div class="form-check-inline" th:each="column : ${columns}">
-                <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>
-                <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>
+<!--            <div class="form-check-inline" th:each="column : ${columns}">-->
+<!--                <input class="form-check-input" type="checkbox" th:id="${column.key}" th:value="${column.key}" th:checked="${column.key == 'all'}"/>-->
+<!--                <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"> </label>-->
             </div>
             <div class="row mb-2 key">
                 <div class="col-auto">
