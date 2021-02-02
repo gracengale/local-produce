@@ -8,50 +8,50 @@
     <div th:replace="fragments :: navigation"></div>
 </div>
 
-<div class="container-fluid" id="editVendor">
-    <div class="row d-flex justify-content-center">
+<div class="container justify-content-center" id="editVendor">
+    <div class="row">
         <div class="col-md-10 mt-5 pt-5">
-            <div class="row z-depth-3">
-                <section class="row justify-content-center">
-                    <h4 th:replace="fragments :: title"></h4>
+            <section class="row justify-content-center">
+                <h4 class="text-center" th:text="${title}"></h4>
+                <br>
+                <br>
+                <form method="post" class="card-block" id="addForm">
+                    <div class="mb-3">
+                        <label th:for="name">Product Name</label>
+                        <input type="text" class="form-control" th:field="${product.name}" th:value="${product.name}"/>
+                        <span th:errors="${product.name}" class="error"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="description">Product Description</label>
+                        <input type="text" class="form-control" th:field="${product.description}" th:value="${product.description}"/>
+                        <span th:errors="${product.description}" class="error"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="organic">Check box if this item is organic:</label>
+                        <input th:field="${product.organic}" type="checkbox" name="${product.organic}" id = "Yes" value="true" th:value="${product.organic}"/>
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="photo">Link to photo:</label>
+                        <input type="text" class="form-control" th:field="${product.photo}" th:value="${product.photo}"/>
+                        <span th:errors="${product.photo}" class="error"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="type">Product Type:</label>
+                        <select th:field="${product.type}">
+                            <option value="Vegetable">Vegetable</option>
+                            <option value="Fruit">Fruit</option>
+                            <option value="Animal Product">Animal Product</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span th:errors="${product.type}" class="error"></span>
+                    </div>
                     <br>
-                    <form method="post" class="card-block" id="addForm">
-                        <div class="mb-3">
-                            <label th:for="name">Product Name</label>
-                            <input type="text" th:field="${product.name}" th:value="${product.name}"/>
-                            <span th:errors="${product.name}" class="error"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label th:for="description">Product Description</label>
-                            <input th:field="${product.description}" th:value="${product.description}"/>
-                            <span th:errors="${product.description}" class="error"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label th:for="organic">Check box if this item is organic:</label>
-                            <input th:field="${product.organic}" type="checkbox" name="${product.organic}" id = "Yes" value="true" th:value="${product.organic}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label th:for="photo">Link to photo:</label>
-                            <input th:field="${product.photo}" th:value="${product.photo}"/>
-
-                            <span th:errors="${product.photo}" class="error"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label th:for="type">Product Type:</label>
-                            <select th:field="${product.type}">
-                                <option value="Vegetable">Vegetable</option>
-                                <option value="Fruit">Fruit</option>
-                                <option value="Animal Product">Animal Product</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <span th:errors="${product.type}" class="error"></span>
-                        </div>
-                        <input type="submit" value="Submit"/>
-                    </form>
-                </section>
-            </div>
+                    <input type="submit" value="Submit" class="btn btn-info" id="submitBtn"/>
+                </form>
+            </section>
         </div>
     </div>
+    <br>
 </div>
 </body>
 </html>

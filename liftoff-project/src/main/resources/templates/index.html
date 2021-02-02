@@ -8,8 +8,7 @@
 <body>
 <div id="home">
     <div th:replace="fragments :: navigation"></div>
-
-    <!-- Start Landing Page Background Image-->
+    <!-- START LANDING PAGE-->
     <div class="landing">
         <div class="home-wrap">
             <div class="container-fluid home-inner">
@@ -19,81 +18,85 @@
             </div>
         </div>
     </div>
-    <!-- End Landing Page Background Image -->
-</div> <!-- End Home Section -->
-
-
-<!-- Start About Section -->
-
-<div id="about-container" class="offset">
-    <h2 class="heading">What Is Local Produce?</h2>
-    <div class="card mb-3 border-0">
-        <div class="row g-0">
-            <div class="col-md-8">
-                <div class="card-body-about">
-                    <p class="card-text aboutUsText">Local Produce is a web-app designed to provide users with
-                        a "One-Stop-Shop"</p>
-                    <p class="card-text aboutUsText">We are here to help connect the bridge between local farmers
-                        and neighborhoods. Whether you are a professional micro-grower, or just a backyard farming
-                        enthusiast that wants to share the excess fruits of your labor.</p>
-                    <p class="card-text aboutUsText">We here at Local Produce hope that through giving farmers a
-                        platform to promote themselves, and a marketplace for users to find locally-sourced goods
-                        that this will promote a sense of community, bolster the local economy, combat food deserts
-                        and reduce the carbon footprint of one's purchases.</p>
-                </div>
-            </div>
-            <div class="col-md-4 img-fluid">
-                <img id="aboutUsImg" src="../img/aboutusimgA.png" alt="..."/>
-            </div>
-        </div>
-    </div>
-
 </div>
 
-<!-- End About Section -->
+<!--START ABOUT SECTION-->
+<div id="about">
+    <div>
+        <div>
+            <img src="img/aboutUs3.png">
+        </div>
+    </div>
+</div>
 
-<!--IMAGE CAROUSEL TEST-->
-<!--User Spotlight Container-->
+<!--START VENDOR SPOTLIGHT SECTION-->
+<div id="vendorspotlight">
+    <div>
+        <div>
+            <img src="img/vendorspotlight.png">
+        </div>
+    </div>
+</div>
+
 <div id="user-spotlight-container">
-    <h1 class="user-spotlight-header">VENDOR SPOTLIGHT</h1>
-
-<!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-
-            <div class="row">
-                <div class="col-md-3" th:each="vendor : ${displayVendors}">
-                    <div class="card mb-2">
-                        <img class="card-img-top" th:src="${vendor.photo}" height="200"
-                        alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title" th:text="${vendor.name}"></h4>
-                            <p class="card-text" th:text="${vendor.location}"></p>
-                            <a class="btn btn-primary" th:href="@{'/users/profile/' + ${vendor.id}}">View Profile</a>
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <!--First slide-->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-3" th:each="vendor : ${displayVendors}">
+                        <div class="card mb-2" id="homepage-card">
+                            <img class="card-img-top" th:src="${vendor.photo}" alt="Card image cap" id="spotlightimg">
+                            <div class="card-body justify-content-center">
+                                <h5 class="card-title" th:text="${vendor.name}"></h5>
+                                <p class="card-text" th:text="${vendor.location}"></p>
+                                <a class="btn btn-primary" th:href="@{'/users/profile/' + ${vendor.id}}">View Profile</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/.First slide-->
-
-
     </div>
-    <!--/.Slides-->
-
 </div>
-<!--/.Carousel Wrapper-->
-</div>
-<!--End User Spotlight Container-->
-
-                    <!--END IMAGE CAROUSEL TEST-->
+<br>
+<br>
 <footer th:replace="fragments :: footer"></footer>
-
 </body>
-
 </html>
+
+
+
+<!-- Start About Section -->
+
+<!--<div id="about-container" class="offset">-->
+<!--    <h2 class="heading">What Is Local Produce?</h2>-->
+<!--    <div class="card mb-3 border-0">-->
+<!--        <div class="row g-0">-->
+<!--            <div class="col-md-8">-->
+<!--                <div class="card-body-about">-->
+<!--                    <p class="card-text aboutUsText">Local Produce is a web-app designed to provide users with-->
+<!--                        a "One-Stop-Shop"</p>-->
+<!--                    <p class="card-text aboutUsText">We are here to help connect the bridge between local farmers-->
+<!--                        and neighborhoods. Whether you are a professional micro-grower, or just a backyard farming-->
+<!--                        enthusiast that wants to share the excess fruits of your labor.</p>-->
+<!--                    <p class="card-text aboutUsText">We here at Local Produce hope that through giving farmers a-->
+<!--                        platform to promote themselves, and a marketplace for users to find locally-sourced goods-->
+<!--                        that this will promote a sense of community, bolster the local economy, combat food deserts-->
+<!--                        and reduce the carbon footprint of one's purchases.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4 img-fluid">-->
+<!--                <img id="aboutUsImg" src="../img/aboutusimgA.png" alt="..."/>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<!-- End About Section -->
+
+<!--IMAGE CAROUSEL TEST-->
+<!--User Spotlight Container-->
